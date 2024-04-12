@@ -14,15 +14,15 @@ The stack contains the following: Sveltekit, Tailwind, Postgres, Lucia, DrizzleO
 
 To start after ['forking'](https://github.com/ekobedevon/STPLDStarter/fork) the repo, run
 
-`npm install`
+```npm install```
 
 after running that be sure to start the docker container wiht
 
-`docker compose up`
+```docker compose up```
 
 for the PGSQL database as you will get errors if it is offline. This will create the pgdata volume to store your data so it persists between resets. You can delete the folder to refresh the database. The initial tables are created with the Setup.sh file in /Scripts which runs when the container is started fresh.
 
-````npm run check""
+```npm run check```
 
 you might get the following error for the pgdata folder for postgres data
 
@@ -36,4 +36,4 @@ Simply run
 
 ```npm run dev```
 
-````
+
