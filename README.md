@@ -1,38 +1,39 @@
-# create-svelte
+# Starter Repo
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+This repo is a simple template developed by ekobedevon for use in web projects. It is configured for a simple web app that uses basic username/password combination for authentication.
+
+## Purpose
+
+This repo expects you to redo the HTML and CSS for the pages, move them around, and just mess with stuff. This is just to get started with the back end basics already configured.
+
+## Stack info
+
+The stack contains the following: Sveltekit, Tailwind, Postgres, Lucia, DrizzleORM. This stack currently requires Node 20, CloudFlare Workers, Deno, Bun, or Vercel Edge Functions or the use of ['polyfill'](https://lucia-auth.com/getting-started/) as per Lucia docs.
 
 ## Creating a project
 
-If you're seeing this, you've probably already done this step. Congrats!
+To start after ['forking'](https://github.com/ekobedevon/STPLDStarter/fork) the repo, run
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+`npm install`
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+after running that be sure to start the docker container wiht
 
-## Developing
+`docker compose up`
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+for the PGSQL database as you will get errors if it is offline. This will create the pgdata volume to store your data so it persists between resets. You can delete the folder to refresh the database. The initial tables are created with the Setup.sh file in /Scripts which runs when the container is started fresh.
 
-```bash
-npm run dev
+````npm run check""
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+you might get the following error for the pgdata folder for postgres data
 
-## Building
+``` EACCES: permission denied ```
 
-To create a production version of your app:
+you can ignore this or remove the volume from the docker compose.
 
-```bash
-npm run build
-```
+## Running the project
 
-You can preview the production build with `npm run preview`.
+Simply run
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+```npm run dev```
+
+````
