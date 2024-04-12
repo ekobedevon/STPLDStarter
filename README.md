@@ -28,7 +28,7 @@ you might get the following error for the pgdata folder for postgres data
 
 ``` EACCES: permission denied ```
 
-you can ignore this or remove the volume from the docker compose.
+you can ignore this or remove the volume from the docker compose. Note this will mean if you rebuild the container your data will be lost.
 
 ## Running the project
 
