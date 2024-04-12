@@ -7,4 +7,4 @@ export const load = (async () => {
 	return {
 		result
 	};
-}) //satisfies PageServerLoad;
+}) satisfies PageServerLoad;

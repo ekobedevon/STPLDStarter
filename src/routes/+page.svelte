@@ -5,6 +5,7 @@
 </script>
 
 <h1 class="text-3xl font-bold underline">Hello world!</h1>
+<a href="/signup">Go to signup</a>
 
 <style lang="postcss">
 	:global(html) {
