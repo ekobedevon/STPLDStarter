@@ -21,7 +21,7 @@ export const actions: Actions = {
 			typeof username !== 'string' ||
 			username.length < 3 ||
 			username.length > 31 ||
-			!/^[a-z0-9_-]+$/.test(username.toLocaleLowerCase())
+			!/^[a-z0-9_-]+$/.test(username.toLowerCase())
 		) {
 			return fail(400, {
 				message: 'Invalid username'
@@ -39,7 +39,7 @@ export const actions: Actions = {
 		// TODO: check if username is already used
 		await authDB.insert(auth_user).values({
 			id: userId,
-			username: username.toLocaleLowerCase(),
+			username: username.toLowerCase(),
 			hashed_password: hashedPassword
 		});
 
