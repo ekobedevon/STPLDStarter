@@ -10,16 +10,18 @@ import type { Actions } from './$types';
 
 export const actions: Actions = {
 	default: async (event) => {
+		
 		const formData = await event.request.formData();
 		const username = formData.get('username');
 		const password = formData.get('password');
 		// username must be between 4 ~ 31 characters, and only consists of lowercase letters, 0-9, -, and _
 		// keep in mind some database (e.g. mysql) are case insensitive
+		console.log(username)
 		if (
 			typeof username !== 'string' ||
 			username.length < 3 ||
 			username.length > 31 ||
-			!/^[a-z0-9_-]+$/.test(username)
+			!/^[a-z0-9_-]+$/.test(username.toLocaleLowerCase())
 		) {
 			return fail(400, {
 				message: 'Invalid username'
@@ -37,7 +39,7 @@ export const actions: Actions = {
 		// TODO: check if username is already used
 		await authDB.insert(auth_user).values({
 			id: userId,
-			username: username,
+			username: username.toLocaleLowerCase(),
 			hashed_password: hashedPassword
 		});
 
